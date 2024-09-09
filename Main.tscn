@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://bedxcn0notji7"]
+
+[ext_resource type="Script" path="res://Main.cs" id="1_syxmb"]
+[ext_resource type="PackedScene" uid="uid://fim4fyylkpo2" path="res://NPC.tscn" id="2_w2w0v"]
+[ext_resource type="Script" path="res://Control.cs" id="3_meba4"]
+[ext_resource type="Script" path="res://ChatManager.cs" id="4_bhmu4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jcmtv"]
+font_size = 81
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_syxmb")
+NPC = ExtResource("2_w2w0v")
+
+[node name="RestartButton" type="Button" parent="."]
+visible = false
+offset_left = 18.0
+offset_top = 17.0
+offset_right = 321.0
+offset_bottom = 59.0
+action_mode = 0
+text = "Restart"
+
+[node name="ChatManager" type="Node3D" parent="."]
+script = ExtResource("4_bhmu4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.924818, 0.380409, 0, -0.380409, 0.924818, 0.0135858, 4.00233, 4.07856)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -341.0
+offset_top = -339.0
+offset_right = 341.0
+grow_horizontal = 2
+grow_vertical = 0
+tooltip_text = "Write your answer here"
+script = ExtResource("3_meba4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -266.5
+offset_top = -235.0
+offset_right = 266.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LineEdit" type="LineEdit" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "SEND"
+
+[node name="EndGameLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = -55.5
+offset_right = 355.0
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_jcmtv")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://fim4fyylkpo2"]
+
+[ext_resource type="Script" path="res://NPC.cs" id="1_gufka"]
+[ext_resource type="Texture2D" uid="uid://brxndanh8dl43" path="res://DALL·E 2024-06-14 18.07.43 - A detailed, realistic human face texture suitable for 3D modeling, showing a smaller face with high-resolution skin details, natural complexion, inclu.webp" id="2_rr2b3"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_82f78"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2x7jh"]
+transparency = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_e8wdr"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wppqw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpa3t"]
+albedo_texture = ExtResource("2_rr2b3")
+normal_scale = -3.67
+normal_texture = SubResource("CompressedTexture2D_wppqw")
+subsurf_scatter_texture = SubResource("CompressedTexture2D_wppqw")
+detail_mask = SubResource("CompressedTexture2D_wppqw")
+uv1_scale = Vector3(1.005, 1.005, 1.005)
+uv1_offset = Vector3(0.24, 0, 0)
+point_size = 128.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1sojd"]
+
+[node name="Player" type="MeshInstance3D"]
+transform = Transform3D(-0.127065, 0, -0.991894, 0, 1, 0, 0.991894, 0, -0.127065, 0, 0, 0)
+mesh = SubResource("CylinderMesh_82f78")
+surface_material_override/0 = SubResource("StandardMaterial3D_2x7jh")
+script = ExtResource("1_gufka")
+
+[node name="Head" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40478, 0)
+mesh = SubResource("SphereMesh_e8wdr")
+surface_material_override/0 = SubResource("StandardMaterial3D_wpa3t")
+
+[node name="Label3D" type="Label3D" parent="Head"]
+transform = Transform3D(-0.089016, 0, 0.996031, 0, 1, 0, -0.996031, 0, -0.089016, 0.990715, 1.03215, -0.126914)
+font_size = 29
+autowrap_mode = 3
+width = 1000.0
+
+[node name="Left_arm" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.495, 0, 0, 0, 0.495, 0, 0, 0, 0.495, 0.0155784, 0.466763, 0.470994)
+mesh = SubResource("CapsuleMesh_1sojd")
+
+[node name="Right_arm" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.495, 0, 0, 0, 0.495, 0, 0, 0, 0.495, 0.0155784, 0.466763, -0.421471)
+mesh = SubResource("CapsuleMesh_1sojd")
+skeleton = NodePath("../..")
