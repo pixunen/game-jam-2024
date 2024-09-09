@@ -7,4 +7,6 @@ You are working as HR and the goal is to correctly respond to the disgruntled em
 
 If you are able to answer correctly the game continues, but if you fail you have to restart.
 
+[Download the .exe here](https://github.com/pixunen/game-jam-2024/releases/tag/release)
+
 ![](https://github.com/pixunen/game-jam-2024/blob/main/example.png)
